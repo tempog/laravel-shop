@@ -65,7 +65,7 @@ Vue.component('select-district', {
     created() {
         this.setFromValue(this.initValue);
     },
-    method: {
+    methods: {
         setFromValue(value) {
             // 过滤掉空值
             value = _.filter(value);
