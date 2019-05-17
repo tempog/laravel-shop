@@ -32,29 +32,16 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    //margin-bottom: 60px;
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 60px;
+    margin-top: 50px;
     background-color: #000;
+    border-top: 2px solid #ff0036;
 
-    .container {
-        padding-right: 15px;
-        padding-left: 15px;
-
-        p {
-            margin: 19px 0;
-            color: #c1c1c1;
-
-            a {
-                color: inherit;
-            }
-        }
+    .col-md {
+        h3, h5 { color: #fff; }
     }
 }
 
