@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\ProductSku;
 use App\Models\User;
 use App\Models\UserAddress;
+use Carbon\Carbon;
 
 class OrderService
 {
@@ -38,13 +39,13 @@ class OrderService
             foreach ($items as $data) {
                 $sku = ProductSku::find($data['sku_id']);
                 // 创建一个 OrderItem 并直接与当前订单关联
-                $item = $order->items()->mark([
+                $item = $order->items()->make([
                     'amount' => $data['amount'],
                     'price'  => $sku->price,
                 ]);
                 $item->product()->associate($sku->product_id);
                 $item->productSku()->associate($sku);
-                $item->save(0);
+                $item->save();
                 $totalAmount += $sku->price * $data['amount'];
                 if ($sku->decreaseStock($data['amount']) <= 0) {
                     throw new InvalidRequestException('该商品库存不足');
