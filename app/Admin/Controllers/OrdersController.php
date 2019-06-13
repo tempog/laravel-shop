@@ -67,4 +67,11 @@ class OrdersController extends Controller
         return $grid;
     }
 
+    public function show(Order $order, Content $content)
+    {
+        return $content
+            ->header('查看订单')
+            ->body(view('admin.orders.show', ['order' => $order]));
+    }
+
 }
