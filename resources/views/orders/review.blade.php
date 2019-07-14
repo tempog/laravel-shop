@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-10 offset-lg-1">
         <div class="card">
-            <div class="card-header">商品评价 <a href="{{ route('orders.index') }}">返回订单列表</a></div>
+            <div class="card-header">商品评价 <a class="float-right" href="{{ route('orders.index') }}">返回订单列表</a></div>
             <div class="card-body">
                 <form action="{{ route('orders.review.store', [$order->id]) }}" method="post">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -58,9 +58,10 @@
                                 @if($order->reviewed)
                                     {{ $item->review }}
                                 @else
-                                    <textarea name="reviews[{{ $index }}][review]" class="form-control {{ $errors->has('reviews.' . $index . '.review') ? 'has-invalid' : '' }}"></textarea>
-                                    @if($errors->has('reviews.' . $index . '.review'))
-                                        @foreach($errors->get('reviews.' . $index . '.review') as $msg)
+                                    <textarea name="reviews[{{$index}}][review]" class="form-control {{ $errors->has('reviews.'.$index.'.review') ? 'is-invalid' : '' }}"></textarea>
+
+                                    @if($errors->has('reviews.' .$index. '.review'))
+                                        @foreach($errors->get('reviews.' .$index. '.review') as $msg)
                                             <span class="invalid-feedback" role="alert"><strong>{{ $msg }}</strong></span>
                                         @endforeach
                                     @endif

@@ -24,19 +24,21 @@ body {
     margin-top: 0px;
 }
 
-/* Sticky footer styles */
-html {
-    position: relative;
-    min-height: 100%;
+html, body {
+    height: 100%;
 }
 
-body {
-    /* Margin bottom by footer height */
-    //margin-bottom: 60px;
+#app {
+    min-height: 100%;
+
+    .article {
+        padding-bottom: 229px;  // 这里应当是footer的固定高度
+        zoom: 1;
+    }
 }
 
 .footer {
-    margin-top: 50px;
+    margin-top: -229px;  // 这里应当是footer的固定高度
     background-color: #000;
     border-top: 2px solid #ff0036;
 
@@ -434,16 +436,13 @@ body {
     .product-info {
         display: flex;
         flex-direction: row;
-        
         .preview {
             img {
                 max-width: 60px;
                 max-height: 60px;
             }
-
             border: 1px solid #eee;
             margin-right: 5px;
-
         }
         .product-title, .sku-title {
             display: block;
@@ -468,12 +467,11 @@ body {
         border-style: none;
         margin: 0 auto;
         padding: 0;
-        
         &:not(:checked) {
             & > input {
                 position: absolute;
                 top: -9999px;
-                clip: rect(0, 0, 0, 0);
+                clip: rect(0,0,0,0);
             }
             & > label {
                 float: right;
@@ -484,7 +482,7 @@ body {
                 line-height: 1.2;
                 color: lightgrey;
                 font-size: 150%;
-                
+
                 &:before {
                     content: '★ ';
                 }
@@ -501,13 +499,13 @@ body {
             top: 2px;
             left: 2px;
         }
+
         & > input:checked + label:hover, & > input:checked + label:hover ~ label, & > input:checked ~ label:hover, & > input:checked ~ label:hover ~ label, & > label:hover ~ input:checked ~ label {
             color: gold;
         }
-
-
     }
+
     textarea {
-        border-radius: 0;
+        border-radius: 0px;
     }
 }

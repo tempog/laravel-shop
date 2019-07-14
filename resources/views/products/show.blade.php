@@ -82,14 +82,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-{{--                                {{ dd($reviews) }}--}}
                                 @foreach($reviews as $review)
                                     <tr>
                                         <td>{{ $review->order->user->name }}</td>
                                         <td>{{ $review->productSku->title }}</td>
                                         <td>{{ str_repeat('★', $review->rating) }}{{ str_repeat('☆', 5 - $review->rating) }}</td>
                                         <td>{{ $review->review }}</td>
-{{--                                        <td>{{ $review->reviewed_at }}</td>--}}
+                                        <td>{{ $review->reviewed_at->format('Y-m-d H:i') }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

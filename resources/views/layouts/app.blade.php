@@ -11,14 +11,22 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body>
+
+
+{{--<article>--}}
+{{--    <div class="poem">--}}
+{{--        ...--}}
+{{--    </div>--}}
+{{--</article>--}}
+
     <div id="app" class="{{ route_class() }}-page">
         @include('layouts._header')
-        <div class="container">
+        <div class="container article">
             @yield('content')
         </div>
-        @include('layouts._footer')
     </div>
-    <!-- JS 脚本 -->
+    @include('layouts._footer')
+<!-- JS 脚本 -->
     <script src="{{ mix('js/app.js') }}"></script>
     @yield('scriptsAfterJs')
 </body>
