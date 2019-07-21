@@ -17,7 +17,7 @@ class OrderService
     public function store(User $user, UserAddress $address, $remark, $items, CouponCode $coupon = null)
     {
         if ($coupon) {
-            $coupon->checkAvailable();
+            $coupon->checkAvailable($user);
         }
         // 开启一个数据库事务
         $order = \DB::transaction(function () use ($user, $address, $remark, $items, $coupon) {
@@ -58,7 +58,7 @@ class OrderService
             }
 
             if ($coupon) {
-                $coupon->checkAvailable($totalAmount);
+                $coupon->checkAvailable($user, $totalAmount);
 
                 $totalAmount = $coupon->getAdjustedPrice($totalAmount);
                 $order->couponCode()->associate($coupon);
