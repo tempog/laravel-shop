@@ -25,7 +25,7 @@
                                             </span>
                                             <span>&gt;</span>
                                         @endforeach
-                                        
+
                                         <span class="category">{{ $category->name }}</span><span> ></span>
                                         <input type="hidden" name="category_id" value="{{ $category->id }}">
                                     @endif
